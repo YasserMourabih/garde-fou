@@ -312,6 +312,11 @@ if verdict["blocked"]:
     ...   # refuse, or pass the message through as untrusted data
 ```
 
+The service loads every stage at startup (~10 s) rather than on first use. That is not
+a detail: before it did, the first request that happened to escalate to the encoder
+paid the model load — 13.4 s, against 16 ms once warm — so a single arbitrary user ate
+a thousandfold latency spike.
+
 [`scripts/guard_llm.py`](scripts/guard_llm.py) wraps any `(prompt) -> str` callable and
 runs end to end with a stub model, so it needs no API key.
 
