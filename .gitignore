@@ -1,0 +1,23 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+
+# Downloaded corpora and trained weights: large and fully regenerable with
+# `make data && make train`.
+data/raw/
+data/processed/
+artifacts/
+# ...except the manifest, which records the exact row counts the report cites.
+!data/processed/
+data/processed/*
+!data/processed/manifest.json
+
+# Note: reports/ IS committed, scores.parquet included (~300 KB). It holds one
+# score per row per detector, so `garde-fou report` regenerates every table and
+# figure on a fresh clone without downloading a corpus or loading a model.

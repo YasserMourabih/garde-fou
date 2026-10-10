@@ -1,0 +1,89 @@
+{
+  "train": {
+    "rows": 11868,
+    "injection": 2041,
+    "benign": 9827,
+    "sources": [
+      "alpaca_en",
+      "safeguard"
+    ],
+    "langs": [
+      "en"
+    ]
+  },
+  "val": {
+    "rows": 2095,
+    "injection": 360,
+    "benign": 1735,
+    "sources": [
+      "alpaca_en",
+      "safeguard"
+    ],
+    "langs": [
+      "en"
+    ]
+  },
+  "test_in": {
+    "rows": 2038,
+    "injection": 645,
+    "benign": 1393,
+    "sources": [
+      "safeguard"
+    ],
+    "langs": [
+      "en"
+    ]
+  },
+  "test_ood": {
+    "rows": 4413,
+    "injection": 1392,
+    "benign": 3021,
+    "sources": [
+      "alpaca_fr",
+      "deepset",
+      "gandalf",
+      "jailbreak"
+    ],
+    "langs": [
+      "en",
+      "en+de",
+      "fr"
+    ]
+  },
+  "pool_attacks": {
+    "rows": 1392,
+    "injection": 1392,
+    "benign": 0,
+    "sources": [
+      "deepset",
+      "gandalf",
+      "jailbreak"
+    ],
+    "langs": [
+      "en",
+      "en+de"
+    ]
+  },
+  "pool_fr_adv": {
+    "rows": 1500,
+    "injection": 0,
+    "benign": 1500,
+    "sources": [
+      "alpaca_fr"
+    ],
+    "langs": [
+      "fr"
+    ]
+  },
+  "pool_fr_test": {
+    "rows": 2000,
+    "injection": 0,
+    "benign": 2000,
+    "sources": [
+      "alpaca_fr"
+    ],
+    "langs": [
+      "fr"
+    ]
+  }
+}

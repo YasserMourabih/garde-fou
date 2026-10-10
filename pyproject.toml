@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "garde-fou"
+version = "0.1.0"
+description = "A multilingual prompt-injection firewall and the adversarial audit that shows why English-only guardrails break."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Yasser Mourabih" }]
+keywords = ["llm", "prompt-injection", "ai-safety", "guardrails", "nlp", "adversarial-robustness"]
+
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "scikit-learn>=1.5",
+  "pyarrow>=16",
+  "pyyaml>=6",
+  "typer>=0.12",
+  "rich>=13",
+  "matplotlib>=3.9",
+]
+
+[project.optional-dependencies]
+# Neural detectors (embeddings + fine-tuned transformer) and the MT augmenter.
+neural = [
+  "torch>=2.4",
+  "transformers>=4.44",
+  "sentence-transformers>=3.0",
+  "huggingface_hub>=0.24",
+]
+# The /v1/scan inference service.
+serve = ["fastapi>=0.115", "uvicorn>=0.30", "pydantic>=2.8"]
+dev = ["pytest>=8", "ruff>=0.6", "httpx>=0.27"]
+
+[project.scripts]
+garde-fou = "garde_fou.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+garde_fou = ["resources/*.jsonl", "resources/*.yaml"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4"]
+ignore = ["E501", "B905"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["network: requires internet access (Hugging Face Hub)"]
+addopts = "-q"
