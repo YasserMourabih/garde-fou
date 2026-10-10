@@ -245,6 +245,11 @@ make install      # venv + package with every extra
 make all          # data -> train -> cascade -> eval -> bench -> recalibrate -> report
 ```
 
+`make install` picks the newest interpreter on your PATH that actually satisfies
+`requires-python`, because on stock macOS `python3` is still 3.9. Point it somewhere
+specific with `make install PYTHON=/path/to/python3.12`; if the existing `.venv` was
+built with too old a Python, it is rebuilt rather than failing halfway through pip.
+
 Or step by step:
 
 ```bash
