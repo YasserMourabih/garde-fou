@@ -21,12 +21,13 @@ jobs:
           cache: pip
 
       - name: Install
-        # The neural extras pull in torch, which CI does not need: every test
-        # marked `network` or requiring a model is excluded below, so the suite
-        # stays a fast, deterministic check of the logic.
+        # `serve` is needed: the API tests import FastAPI. `neural` is
+        # deliberately left out — it pulls in torch, and every test that needs a
+        # model is either stubbed or marked `network` and excluded below, so the
+        # suite stays a fast, deterministic check of the logic.
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e ".[dev]"
+          python -m pip install -e ".[serve,dev]"
 
       - name: Lint
         run: python -m ruff check src tests
