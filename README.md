@@ -2,7 +2,7 @@
 
 **A multilingual prompt-injection filter — and the audit that shows why the published numbers don't hold.**
 
-[![CI](https://github.com/USERNAME/garde-fou/actions/workflows/ci.yml/badge.svg)](https://github.com/USERNAME/garde-fou/actions/workflows/ci.yml)
+[![CI](https://github.com/YasserMourabih/garde-fou/actions/workflows/ci.yml/badge.svg)](https://github.com/YasserMourabih/garde-fou/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -240,7 +240,7 @@ Needs Python 3.10+ and about 2 GB of disk for the corpora and model weights. No 
 services, no GPU required — the whole pipeline runs on a laptop in roughly 15 minutes.
 
 ```bash
-git clone https://github.com/USERNAME/garde-fou && cd garde-fou
+git clone https://github.com/YasserMourabih/garde-fou && cd garde-fou
 make install      # venv + package with every extra
 make all          # data -> train -> cascade -> eval -> bench -> recalibrate -> report
 ```
