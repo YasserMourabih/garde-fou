@@ -361,7 +361,7 @@ of mDistilBERT's 135M parameters sit in the multilingual embedding table, so fre
 it removes two thirds of the optimiser state at no measurable cost on a task this
 size.
 
-137 tests, CI on Python 3.10–3.12. Tests that hit the network are marked and excluded
+140 tests, CI on Python 3.10–3.12. Tests that hit the network are marked and excluded
 from CI (`pytest -m network` to run them).
 
 ---
