@@ -21,3 +21,7 @@ data/processed/*
 # Note: reports/ IS committed, scores.parquet included (~300 KB). It holds one
 # score per row per detector, so `garde-fou report` regenerates every table and
 # figure on a fresh clone without downloading a corpus or loading a model.
+
+# Conversions locales du README (regenerables)
+README.html
+README.pdf
